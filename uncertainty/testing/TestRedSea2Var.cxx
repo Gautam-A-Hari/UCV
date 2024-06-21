@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     }
 
     std::string dataFolder = std::string(argv[1]);
-    int NumEns = 20;
+
 
     std::string Approach = std::string(argv[2]);
     int NumSamples = std::stoi(argv[3]); // this only work when appraoch is MonteCarlo
@@ -160,23 +160,19 @@ int main(int argc, char *argv[])
         filter.SetNumSamples(NumSamples);
     }
 
-    //vtkm::cont::Timer timer{initResult.Device};
-    //std::cout << "timer device: " << timer.GetDevice().GetName() << std::endl;
+    vtkm::cont::Timer timer{initResult.Device};
+    std::cout << "timer device: " << timer.GetDevice().GetName() << std::endl;
 
-    // run filter five times
-    //for (int i = 1; i <= 5; i++)
-    //{        
-        //std::cout << "------" << std::endl;
-        //std::cout << std::to_string(i) << "th run" << std::endl;
-        //timer.Start();
+    for (int i = 1; i <= 5; i++)
+    {        
+        std::cout << "------" << std::endl;
+        std::cout << std::to_string(i) << "th run" << std::endl;
+        timer.Start();
         vtkm::cont::DataSet output = filter.Execute(dataSetForFilter);
-        std::string outputFilename = "redSeaOutput2Var"+Approach+std::to_string(NumSamples)+".vtk"; 
-        vtkm::io::VTKDataSetWriter writer(outputFilename);
-        writer.WriteDataSet(output);
-        std::cout << "output file: " << outputFilename << std::endl;
-        //timer.Synchronize();
-        //timer.Stop();
-        //vtkm::Float64 elapsedTime = timer.GetElapsedTime();
-        //std::cout << "total elapsedTime:" << elapsedTime << std::endl;
-    //}
+
+        timer.Synchronize();
+        timer.Stop();
+        vtkm::Float64 elapsedTime = timer.GetElapsedTime();
+        std::cout << "total elapsedTime:" << elapsedTime << std::endl;
+    }
 }
