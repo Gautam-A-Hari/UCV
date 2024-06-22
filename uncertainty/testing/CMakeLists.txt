@@ -33,6 +33,19 @@ add_executable(TestRedSeaComparison TestRedSeaComparison.cxx ../Fiber.cxx)
 target_link_libraries(TestRedSeaComparison ${VTKm_LIBRARIES} MPI::MPI_CXX)
 
 
+set_source_files_properties(TestRedSea2Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestRedSea2Var TestRedSea2Var.cxx ../Fiber2Var.cxx)
+target_link_libraries(TestRedSea ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+set_source_files_properties(TestRedSea3Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestRedSea3Var TestRedSea3Var.cxx ../Fiber3Var.cxx)
+target_link_libraries(TestRedSea3Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+set_source_files_properties(TestRedSea4Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestRedSea4Var TestRedSea4Var.cxx ../Fiber4Var.cxx)
+target_link_libraries(TestRedSea4Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+
 elseif(USE_CUDA)
 
 message("---use cuda build---")
@@ -46,6 +59,33 @@ set_source_files_properties(TestRedSea.cxx PROPERTIES LANGUAGE "CUDA")
 set_source_files_properties(../Fiber.cxx PROPERTIES LANGUAGE "CUDA")
 set_source_files_properties(temp.cxx PROPERTIES LANGUAGE "CUDA")
 
+#two var
+
+set_source_files_properties(../Fiber2Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../worklet/Fiber2Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../Fiber2Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestRedSea2Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestAsteroidImpact2Var.cxx PROPERTIES LANGUAGE "CUDA")
+
+#three var
+
+set_source_files_properties(../Fiber3Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../worklet/Fiber3Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../Fiber3Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestRedSea3Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestAsteroidImpact3Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestAsteroidImpact3VarTruth.cxx PROPERTIES LANGUAGE "CUDA")
+
+#four var
+
+set_source_files_properties(../Fiber4Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../worklet/Fiber4Var.h PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(../Fiber4Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestRedSea4Var.cxx PROPERTIES LANGUAGE "CUDA")
+set_source_files_properties(TestAsteroidImpact4Var.cxx PROPERTIES LANGUAGE "CUDA")
+
+
+
 add_library(fiber ../Fiber.cxx)
 target_link_libraries(fiber ${VTKm_LIBRARIES})
 set_target_properties(fiber PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
@@ -58,6 +98,8 @@ set_target_properties(TestSuperNova PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 add_executable(TestRedSea TestRedSea.cxx)
 target_link_libraries(TestRedSea fiber)
 set_target_properties(TestRedSea PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+
 
 add_executable(temp temp.cxx)
 target_link_libraries(temp ${VTKm_LIBRARIES})
