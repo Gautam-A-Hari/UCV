@@ -104,16 +104,6 @@ add_library(fiber ../Fiber.cxx)
 target_link_libraries(fiber ${VTKm_LIBRARIES})
 set_target_properties(fiber PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
-add_library(Fiber3Var ../Fiber3Var.cxx)
-target_link_libraries(Fiber3Var ${VTKm_LIBRARIES})
-set_target_properties(Fiber3Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_library(Fiber4Var ../Fiber4Var.cxx)
-target_link_libraries(Fiber4Var ${VTKm_LIBRARIES})
-set_target_properties(Fiber4Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-
-
 add_executable(TestSuperNova TestSuperNova.cxx)
 target_link_libraries(TestSuperNova fiber)
 set_target_properties(TestSuperNova PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
@@ -123,29 +113,6 @@ add_executable(TestRedSea TestRedSea.cxx)
 target_link_libraries(TestRedSea fiber)
 set_target_properties(TestRedSea PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
-add_executable(TestRedSea3Var TestRedSea3Var.cxx)
-target_link_libraries(TestRedSea3Var Fiber3Var)
-set_target_properties(TestRedSea3Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_executable(TestRedSea4Var TestRedSea4Var.cxx)
-target_link_libraries(TestRedSea4Var Fiber4Var)
-set_target_properties(TestRedSea4Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_executable(TestAsteroidImpact2Var TestAsteroidImpact2Var.cxx)
-target_link_libraries(TestAsteroidImpact2Var fiber)
-set_target_properties(TestAsteroidImpact2Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_executable(TestAsteroidImpact3Var TestAsteroidImpact3Var.cxx)
-target_link_libraries(TestAsteroidImpact3Var Fiber3Var)
-set_target_properties(TestAsteroidImpact3Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_executable(TestAsteroidImpact3VarTruth TestAsteroidImpact3VarTruth.cxx)
-target_link_libraries(TestAsteroidImpact3VarTruth Fiber3Var)
-set_target_properties(TestAsteroidImpact3VarTruth PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-
-add_executable(TestAsteroidImpact4Var TestAsteroidImpact4Var.cxx)
-target_link_libraries(TestAsteroidImpact4Var Fiber4Var)
-set_target_properties(TestAsteroidImpact4Var PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 
 
 add_executable(temp temp.cxx)
