@@ -19,7 +19,7 @@ mkdir -p $RUNDIR
 cd $RUNDIR
 
 
-rm TestRedSea2Var
+rm TestAsteroidImpact4Var
 #rm TestRedSeaComparison
 ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestAsteroidImpact4Var TestAsteroidImpact4Var
 #ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestRedSea4Var TestRedSea4Var
