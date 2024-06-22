@@ -21,7 +21,7 @@ cd $RUNDIR
 
 rm TestRedSea2Var
 #rm TestRedSeaComparison
-ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestAsteroidImpact3Var TestAsteroidImpact3Var
+ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestAsteroidImpact2Var TestAsteroidImpact2Var
 #ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestRedSea4Var TestRedSea4Var
 #ln -s $CURRDIR/../install_scripts/frontier_gpu/install/UCV/uncertainty/testing/TestRedSeaComparison TestRedSeaComparison
 
