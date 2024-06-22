@@ -30,7 +30,7 @@ export OMP_NUM_THREADS=1
 
 
 # serial
-./TestAsteroidImpact2Var --vtkm-device serial $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact2Var_cf_serial.log
+./TestAsteroidImpact2Var --vtkm-device serial $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact3Var_cf_serial.log
 
 
 #./TestRedSea4Var --vtkm-device serial $DATADIR/dataForGautam ClosedForm 5000 &> redsea_cf_serial.log
@@ -41,7 +41,7 @@ export OMP_NUM_THREADS=1
 
 
 # kokkos
-./TestAsteroidImpact2Var --vtkm-device kokkos $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact2Var_cf_kokkos.log
+./TestAsteroidImpact2Var --vtkm-device kokkos $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact3Var_cf_kokkos.log
 
 
 #./TestRedSea4Var --vtkm-device kokkos $DATADIR/dataForGautam ClosedForm 5000 &> redsea_cf_kokkos.log
@@ -58,7 +58,7 @@ export OMP_NUM_THREADS=1
 export OMP_NUM_THREADS=64
 
 
-./TestAsteroidImpact2Var --vtkm-device openmp $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact2Var_cf_openmp.log
+./TestAsteroidImpact2Var --vtkm-device openmp $DATADIR/dataForGautam ClosedForm 5000 &> asteroidImpact3Var_cf_openmp.log
 
 
 #./TestRedSea4Var --vtkm-device openmp $DATADIR/dataForGautam ClosedForm 5000 &> redsea_cf_openmp.log
