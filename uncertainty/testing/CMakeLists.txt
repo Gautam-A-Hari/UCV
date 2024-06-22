@@ -45,6 +45,20 @@ set_source_files_properties(TestRedSea4Var.cxx PROPERTIES LANGUAGE "HIP")
 add_executable(TestRedSea4Var TestRedSea4Var.cxx ../Fiber4Var.cxx)
 target_link_libraries(TestRedSea4Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
 
+set_source_files_properties(TestAteroidImpact2Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestAsteroidImpact2Var TestAsteroidImpact2Var.cxx ../Fiber2Var.cxx)
+target_link_libraries(TestAsteroidImpact2Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+set_source_files_properties(TestAsteroidImpact3Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestAsteroidImpact3Var TestAsteroidImpact3Var.cxx ../Fiber3Var.cxx)
+target_link_libraries(TestAsteroidImpact3Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+set_source_files_properties(TestAsteroidImpact4Var.cxx PROPERTIES LANGUAGE "HIP")
+add_executable(TestAsteroidImpact4Var TestAsteroidImpact4Var.cxx ../Fiber4Var.cxx)
+target_link_libraries(TestAsteroidImpact4Var ${VTKm_LIBRARIES} MPI::MPI_CXX)
+
+
+
 
 elseif(USE_CUDA)
 
