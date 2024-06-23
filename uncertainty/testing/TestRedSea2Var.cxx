@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
     vtkm::cont::Timer timer{initResult.Device};
     std::cout << "timer device: " << timer.GetDevice().GetName() << std::endl;
 
-    for (int i = 1; i <= 5; i++)
+    for (int i = 1; i <= 10; i++)
     {        
         std::cout << "------" << std::endl;
         std::cout << std::to_string(i) << "th run" << std::endl;
